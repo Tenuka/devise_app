@@ -1,0 +1,6 @@
+<% provide(:title, "User's books" ) %>
+<% @books.each do |book| %>
+  <p>
+    <%= link_to book.name, user_book_path(book.user.id, book) %>
+  </p>
+<% end %> 

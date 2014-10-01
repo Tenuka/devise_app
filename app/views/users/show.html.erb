@@ -1,0 +1,7 @@
+<% provide(:title, @user.email) %>
+<%= @user.email %>
+<ul>
+<% @user.books.each do |book| %>
+ <li><%= link_to book.name, user_book_path(@user, book) %></li>
+<% end %>
+</ul>
