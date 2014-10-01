@@ -7,6 +7,7 @@ gem 'rails', '4.0.2'
 gem 'mysql2'
 
 gem 'devise'
+gem 'cancancan', '~> 1.9'
 
 gem 'bootstrap-sass', '2.3.2.0'
 
@@ -35,6 +36,15 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "pry"
+end
+
+group :development, :test do
+  gem 'rspec-rails', '2.13.1'
+end
+
+group :test do
+  gem 'selenium-webdriver', '2.35.1'
+  gem 'capybara', '2.1.0'
 end
 
 group :production do
