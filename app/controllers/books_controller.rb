@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 	def index
-    @books = current_user.books.scope
+    @books = User.find(params[:user_id]).books.scoped
   end
 
   def new
@@ -12,15 +12,19 @@ class BooksController < ApplicationController
 		@book.user = current_user
 		if @book.save
       flash[:success] = "Welcome to the Sample App!"
-      render 'show'
+      redirect_to @book
     else
-      redirect_to 'new'
+      render 'new'
     end 
 	end
 
 	def show
-		@book = user.books.find(params[:id])
+		@book = Book.find(params[:id])
 	end
+
+  def show_all
+    @books = Book.scoped
+  end
 
 
 	private

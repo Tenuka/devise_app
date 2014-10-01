@@ -1,6 +1,11 @@
-<% provide(:title, "User's books" ) %>
-<% @books.each do |book| %>
-  <p>
-    <%= link_to book.name, user_book_path(book.user.id, book) %>
-  </p>
-<% end %> 
+<% provide(:title, "User books" ) %>
+
+<% if @books.any? %>
+  <% @books.each do |book| %>
+    <p>
+      <%= link_to book.name, book_path(book) %>
+    </p>
+  <% end %>
+<% else %>
+  <p>No books yet</p>  
+<% end %>

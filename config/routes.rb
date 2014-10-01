@@ -10,9 +10,11 @@ DeviseApp::Application.routes.draw do
 
   # get 'persons/profile', as: 'current_user'
   resources :users do
-    resources :books
+    resources :books, only: [ :index, :new, :create ]
   end
 
+  resources :books, only: [:show] 
+  get "books" => 'books#show_all'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
