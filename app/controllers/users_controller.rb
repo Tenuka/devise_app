@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-	def index
+	before_action :authenticate_user!, only: [:index, :show]
+
+  def index
 		@users = User.scoped
 	end
 

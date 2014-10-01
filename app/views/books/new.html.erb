@@ -1,7 +1,9 @@
 <h1>New book</h1>
 <%= form_for [current_user, @book] do |f| %>
 <!-- hidden field current user -->
-    
+  <%= render 'shared/book_error_messages' %>
+
+  <%= f.label :name %>  
 	<%= f.text_field :name %>
 	<%= f.submit 'Create Book' %>	
 	

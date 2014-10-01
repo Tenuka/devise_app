@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
-	def index
+	before_action :authenticate_user!, only: [:new, :create]
+
+  def index
     @books = User.find(params[:user_id]).books.scoped
   end
 
