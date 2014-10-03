@@ -9,6 +9,12 @@ gem 'mysql2'
 gem 'devise'
 gem 'cancancan', '~> 1.9'
 
+gem 'activeadmin', github: 'activeadmin'
+
+gem 'simple_form'
+gem "nested_form"
+gem 'chosen-rails'
+
 gem 'bootstrap-sass', '2.3.2.0'
 
 # Use SCSS for stylesheets
