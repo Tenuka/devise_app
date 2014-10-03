@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001153106) do
+ActiveRecord::Schema.define(version: 20141003081421) do
+
+  create_table "annotations", force: true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "chapter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "annotations", ["chapter_id"], name: "index_annotations_on_chapter_id", using: :btree
+  add_index "annotations", ["user_id"], name: "index_annotations_on_user_id", using: :btree
+
+  create_table "book_tags", force: true do |t|
+    t.integer  "book_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "book_tags", ["book_id"], name: "index_book_tags_on_book_id", unique: true, using: :btree
+  add_index "book_tags", ["tag_id"], name: "index_book_tags_on_tag_id", unique: true, using: :btree
 
   create_table "books", force: true do |t|
     t.string   "name"
@@ -24,7 +45,35 @@ ActiveRecord::Schema.define(version: 20141001153106) do
   add_index "books", ["genre_id"], name: "index_books_on_genre_id", using: :btree
   add_index "books", ["user_id"], name: "index_books_on_user_id", using: :btree
 
+  create_table "chapters", force: true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.integer  "number"
+    t.integer  "book_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "chapters", ["book_id"], name: "index_chapters_on_book_id", using: :btree
+
   create_table "genres", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rates", force: true do |t|
+    t.integer  "rate"
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rates", ["book_id"], name: "index_rates_on_book_id", using: :btree
+  add_index "rates", ["user_id"], name: "index_rates_on_user_id", using: :btree
+
+  create_table "tags", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :confirmable, :lockable, :validatable
 
     has_many :books, dependent: :destroy
+    has_many :rates, dependent: :destroy
+    has_many :annotations, dependent: :destroy
 
     validates :name, presence: true, length: { maximum: 50 }
 end
