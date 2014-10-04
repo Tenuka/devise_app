@@ -3,7 +3,7 @@
 <% if @books.any? %>
   <% @books.each do |book| %>
     <p>
-      <%= link_to book.name, book_path(book) %>
+      <%= link_to book.name, book_chapters_path(book) %>
     </p>
   <% end %>
 <% else %>

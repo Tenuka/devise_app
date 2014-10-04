@@ -16,6 +16,8 @@ gem "nested_form"
 gem 'chosen-rails'
 
 gem 'bootstrap-sass', '2.3.2.0'
+gem 'bootstrap-sass-rails'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

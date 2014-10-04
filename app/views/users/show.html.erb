@@ -1,8 +1,8 @@
 <% provide(:title, @user.name) %>
 <%= @user.name %>
-<p><%= link_to @user.name << " books", user_books_path(@user) %>
+<p><%= link_to @user.name << " books", books_path %>
 </p>
-<%= link_to "Create new book", new_user_book_path(@user) %>
+<%= link_to "Create new book", new_book_path %>
 <ul>
 <% @user.books.each do |book| %>
  <li><%= link_to book.name, book_path(book) %></li>

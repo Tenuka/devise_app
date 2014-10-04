@@ -14,11 +14,15 @@ class BooksController < ApplicationController
 		@book.user = current_user
 		if @book.save
       flash[:success] = "Welcome to the Sample App!"
-      redirect_to @book
+      redirect_to edit_book_path(@book)
     else
       render 'new'
     end 
 	end
+
+  def edit
+    @book = Book.find(params[:id])
+  end
 
 	def show
 		@book = Book.find(params[:id])
@@ -32,7 +36,9 @@ class BooksController < ApplicationController
 	private
 
 	def book_params
-		params.require(:book).permit(:name)
+		params.require(:book).permit(:name, :user_id)
 	end
+
+
 
 end

@@ -5,5 +5,6 @@ class Book < ActiveRecord::Base
   belongs_to :genre
   has_many   :chapters, dependent: :destroy
   has_many   :rates, dependent: :destroy
+  has_many   :book_tags
   has_many   :tags, through: :book_tags
 end
