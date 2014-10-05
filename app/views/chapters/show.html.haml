@@ -1,10 +1,10 @@
 %h1 Chapter
 %p Book name
-= @book.name
+= @chapter.book.name
 %br
 %p Chapter name
 = @chapter.name
 %br
 %p Chapter content
 :markdown
-  = @chapter.content
+  #{ @chapter.content }

@@ -5,6 +5,14 @@
 <%= link_to "Create new book", new_book_path %>
 <ul>
 <% @user.books.each do |book| %>
- <li><%= link_to book.name, book_path(book) %></li>
+  
+  <li>
+    <p>
+    <%= link_to book.name, book_path(book) %> 
+    </p>
+    <p>
+    <%= link_to "Edit book", edit_book_path(book) %>
+    </p>
+  </li>
 <% end %>
 </ul>

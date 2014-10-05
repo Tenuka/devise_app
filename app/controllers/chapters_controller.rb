@@ -27,7 +27,7 @@ class ChaptersController < ApplicationController
 
   private
   def chapter_params
-    params.require(:chapter).permit(:name, :content, :user_id, :book_id)
+    params.require(:chapter).permit(:name, :content, :number, :book_id)
   end
 
 end

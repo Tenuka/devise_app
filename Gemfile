@@ -23,6 +23,8 @@ gem 'redcarpet'
 gem 'albino'
 gem 'nokogiri'
 
+gem "slim-rails"
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

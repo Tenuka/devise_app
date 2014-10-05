@@ -1,10 +1,13 @@
 <h1>New Chapter</h1>
 <br>
-
+<div>
+  <div >
 <%= form_for [ @book, @chapter] do |f| %>
 <!-- hidden field current user -->
   <%= f.label :name %>  
-  <%= f.text_field :name, {:class => "span8"} %>
+  <%= f.text_field :name %>
+  <%= f.label :number %>  
+  <%= f.text_field :number %>
   <%= f.label :content %> 
   <div > 
   <%= f.text_area :content, { :id => "target-editor-with-custom-language", :class => "md-input", :rows => "5", "data-provide" =>"markdown", :style => { :resize => "none" }} %>
@@ -15,6 +18,8 @@
   
 
 <% end %>
+</div>
+</div>
 
 <!-- <form>
     <input name="name" type="text" placeholder="Title?" />
