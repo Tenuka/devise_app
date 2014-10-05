@@ -15,7 +15,7 @@ gem 'simple_form'
 gem "nested_form"
 gem 'chosen-rails'
 
-gem 'bootstrap-sass', '2.3.2.0'
+gem 'bootstrap-sass', '~> 3.1.1.0'         # , '2.3.2.0'
 # gem 'bootstrap-sass-rails'
 gem 'rails-bootstrap-markdown'
 gem 'haml-rails'
