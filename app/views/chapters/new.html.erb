@@ -1,36 +1,15 @@
 <h1>New Chapter</h1>
 <br>
-<div>
-  <div >
-<%= form_for [ @book, @chapter] do |f| %>
-<!-- hidden field current user -->
-  <%= f.label :name %>  
-  <%= f.text_field :name %>
-  <%= f.label :number %>  
-  <%= f.text_field :number %>
-  <%= f.label :content %> 
+<%= simple_form_for [ @book, @chapter] do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+  <%= f.input :name, label: 'Chapter name' %>
+  <%= f.input :number %>
   <div > 
-  <%= f.text_area :content, { :id => "target-editor-with-custom-language", :class => "md-input", :rows => "5", "data-provide" =>"markdown", :style => { :resize => "none" }} %>
+  <%= f.input :content, :input_html => {:rows => 8, :placeholder => "Enter some text.", :class => "span8", "data-provide" => "markdown" } %>
   </div>
-  <!-- <textarea id="target-editor-with-custom-language" class="md-input" rows="5" style="resize: none;"></textarea> -->
-  <!-- <textarea id="chapter_content" name="content" data-provide="markdown" rows="10"></textarea> -->
-  <%= f.submit 'Create Chapter' %> 
+  <%= f.button :submit %>
+  </div> 
   
 
 <% end %>
-</div>
-</div>
-
-<!-- <form>
-    <input name="name" type="text" placeholder="Title?" />
-    <textarea name="content" data-provide="markdown" rows="10"></textarea>
-    <label class="checkbox">
-      <input name="publish" type="checkbox"> Publish
-    </label>
-    <hr/>
-
-    <button type="submit" class="btn">Submit</button>
-  </form>
-
-
-    -->
