@@ -58,8 +58,10 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $grayLight;
-}
+  /* color: $grayLight;
+ */
+ }
+
 
 p {
   font-size: 1.1em;
@@ -68,6 +70,10 @@ p {
 
 
 /* header */
+
+header {
+  color: $grayLight;
+}
 
 #logo {
   float: left;
