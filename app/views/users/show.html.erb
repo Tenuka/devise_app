@@ -1,7 +1,5 @@
 <% provide(:title, @user.name) %>
-<%= @user.name %>
-<p><%= link_to @user.name << " books", books_path %>
-</p>
+<p><%= @user.name %></p>
 <%= link_to "Create new book", new_book_path %>
 <ul>
 <% @user.books.each do |book| %>
