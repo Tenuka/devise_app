@@ -9,7 +9,7 @@
     = chapter.id
     %br
     %p Chapter content
-    :markdown
-      #{ chapter.content }
+    / :markdown
+    = raw(chapter.content)
 -else
   %p No chapters yet  

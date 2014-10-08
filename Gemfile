@@ -10,13 +10,14 @@ gem 'devise'
 gem 'cancancan', '~> 1.9'
 
 gem 'activeadmin', github: 'activeadmin'
+gem 'enumerize'
 
 gem 'simple_form'
 gem "nested_form"
 gem 'chosen-rails'
 
-gem 'bootstrap-sass', '~> 3.1.1.0'         # , '2.3.2.0'
-# gem 'bootstrap-sass-rails'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'sass-rails', '>= 3.2'
 gem 'rails-bootstrap-markdown'
 gem 'haml-rails'
 gem 'redcarpet'
@@ -27,7 +28,6 @@ gem "slim-rails"
 
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
 gem 'railties', '>= 4.0.0', '< 5.0'
 gem 'sass', '~> 3.2.0'
 gem 'sprockets', '~> 2.8', '<= 2.11.0'
@@ -50,10 +50,10 @@ end
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "pry"
 end
 
 group :development, :test do
+  gem "pry-rails"
   gem 'rspec-rails', '2.13.1'
 end
 

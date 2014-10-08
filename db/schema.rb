@@ -25,14 +25,9 @@ ActiveRecord::Schema.define(version: 20141003081421) do
   add_index "annotations", ["user_id"], name: "index_annotations_on_user_id", using: :btree
 
   create_table "book_tags", force: true do |t|
-    t.integer  "book_id"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "book_id"
+    t.integer "tag_id"
   end
-
-  add_index "book_tags", ["book_id"], name: "index_book_tags_on_book_id", unique: true, using: :btree
-  add_index "book_tags", ["tag_id"], name: "index_book_tags_on_tag_id", unique: true, using: :btree
 
   create_table "books", force: true do |t|
     t.string   "name"

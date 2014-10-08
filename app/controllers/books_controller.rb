@@ -10,7 +10,7 @@ class BooksController < ApplicationController
 	end
 
 	def create
-		@book = Book.create(book_params)
+    @book = Book.create(book_params)
 		@book.user = current_user
 		if @book.save
       flash[:success] = "Welcome to the Sample App!"
@@ -57,7 +57,7 @@ class BooksController < ApplicationController
 	private
 
 	def book_params
-		params.require(:book).permit(:name, :user_id, :genre_id, :tag_id)
+		params.require(:book).permit(:name, :user_id, :genre_id, {tag_ids: []})
 	end
 
 

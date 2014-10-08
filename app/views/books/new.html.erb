@@ -1,7 +1,7 @@
 <h1>New book</h1>
 <div class="row">
   <div class="col-md-4 col-md-offset-2">
-    <%= simple_form_for [@book] do |f| %>
+    <%= simple_form_for @book do |f| %>
     <!-- hidden field current user -->
     <%= render 'shared/book_error_messages' %>
 
@@ -12,25 +12,11 @@
       include_blank: true,
       input_html: { class: 'chosen-select' }
     %>
-    <%= f.association :genre,
-      collection: Genre.all,
+    <%= f.association :tags,
+      collection: Tag.all,
       include_blank: true,
-      input_html: { class: 'chosen-container chosen-container-multi chosen-with-drop chosen-container-active' }
+      input_html: { class: 'chosen-select', multiple: true }
     %>
-    <div>
-          <em>Multiple Select</em>
-          <select data-placeholder="Your Favorite Types of Bear" style="width: 350px; display: none;" multiple="" class="chosen-select" tabindex="-1">
-            <option value=""></option>
-            <option>American Black Bear</option>
-            <option>Asiatic Black Bear</option>
-            <option>Brown Bear</option>
-            <option>Giant Panda</option>
-            <option selected="">Sloth Bear</option>
-            <option disabled="">Sun Bear</option>
-            <option selected="">Polar Bear</option>
-            <option disabled="">Spectacled Bear</option>
-          </select><div class="chosen-container chosen-container-multi chosen-with-drop chosen-container-active" style="width: 350px;" title=""><ul class="chosen-choices"><li class="search-choice"><span>Sloth Bear</span><a class="search-choice-close" data-option-array-index="5"></a></li><li class="search-choice"><span>Polar Bear</span><a class="search-choice-close" data-option-array-index="7"></a></li><li class="search-choice"><span>Giant Panda</span><a class="search-choice-close" data-option-array-index="4"></a></li><li class="search-field"><input type="text" value="Your Favorite Types of Bear" class="" autocomplete="off" style="width: 25px;" tabindex="8"></li></ul><div class="chosen-drop"><ul class="chosen-results"><li class="active-result highlighted" data-option-array-index="1">American Black Bear</li><li class="active-result" data-option-array-index="2">Asiatic Black Bear</li><li class="active-result" data-option-array-index="3">Brown Bear</li><li class="result-selected" data-option-array-index="4">Giant Panda</li><li class="result-selected" data-option-array-index="5">Sloth Bear</li><li class="disabled-result" data-option-array-index="6">Sun Bear</li><li class="result-selected" data-option-array-index="7">Polar Bear</li><li class="disabled-result" data-option-array-index="8">Spectacled Bear</li></ul></div></div>
-        </div>
     <%= f.button :submit, 'Create Book' %>	
     
 

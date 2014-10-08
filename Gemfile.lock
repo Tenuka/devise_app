@@ -54,7 +54,7 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.1.1.1)
+    bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     bourbon (3.2.3)
       sass (~> 3.2)
@@ -98,6 +98,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    enumerize (0.8.0)
+      activesupport (>= 3.2)
     erubis (2.7.0)
     execjs (2.2.1)
     ffi (1.9.5)
@@ -152,6 +154,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -260,19 +264,20 @@ DEPENDENCIES
   albino
   better_errors
   binding_of_caller
-  bootstrap-sass (~> 3.1.1.0)
+  bootstrap-sass (~> 3.2.0)
   cancancan (~> 1.9)
   capybara (= 2.1.0)
   chosen-rails
   coffee-rails (~> 4.0.0)
   devise
+  enumerize
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
   nested_form
   nokogiri
-  pry
+  pry-rails
   rails (= 4.0.2)
   rails-bootstrap-markdown
   rails_12factor (= 0.0.2)
@@ -280,7 +285,7 @@ DEPENDENCIES
   redcarpet
   rspec-rails (= 2.13.1)
   sass (~> 3.2.0)
-  sass-rails (~> 4.0.0)
+  sass-rails (>= 3.2)
   sdoc
   selenium-webdriver (= 2.35.1)
   simple_form

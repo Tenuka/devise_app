@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
-//= require bootstrap-markdown-bundle
 //= require chosen-jquery
+//= require bootstrap-sprockets
+//= require bootstrap-markdown-bundle
+//= require books
+
+
