@@ -17,6 +17,7 @@ DeviseApp::Application.routes.draw do
   resources :books do  # , only: [:show]
     resources :chapters #, only: [ :show ]
   end
+  resources :genres
   #get "books" => 'books#show_all'
 
   # Example of regular route:

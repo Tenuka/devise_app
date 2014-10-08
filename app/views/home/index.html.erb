@@ -1,2 +1,12 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% provide(:title, "All Books" ) %>
+<h1>All Books</h1>
+
+<% if @books.any? %>
+  <% @books.each do |book| %>
+    <p>
+      <%= link_to book.name, book_chapters_path(book) %>
+    </p>
+  <% end %>
+<% else %>
+  <p>No books yet</p>  
+<% end %>

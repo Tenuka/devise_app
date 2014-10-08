@@ -1,0 +1,10 @@
+- provide(:title, "All Genres")
+h1 All Genres
+- @genres.each do |genre|
+  p
+    = link_to genre.name, genre_path(genre)
+    - if genre.books.any?
+      = " | Books with this genre: " 
+      = genre.books.count
+    - else
+      = " | No books with this genre"

@@ -1,2 +1,4 @@
+<% if @book.user == current_user %>
 <%= @book.name %>
-<%= link_to "Create new chapter", new_book_chapter_path(@book) %>
+<p><%= link_to "Create new chapter", new_book_chapter_path(@book) %></p>
+<% end %>

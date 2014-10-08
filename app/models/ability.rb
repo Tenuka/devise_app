@@ -28,5 +28,15 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+
+    user ||= current_user # guest user (not logged in)
+    book ||= Book.new
+    chapter ||= book.chapters.first
+      if user.id == book.user_id 
+        can :manage, Chapter
+        
+      else 
+        can :read, Chapter
+      end
   end
 end

@@ -1,0 +1,15 @@
+- provide(:title, @book.name)
+= @book.name
+- if @book.chapters.any?
+  - @book.chapters.each do |chapter|
+    %p Chapter name
+    = chapter.name
+    %br
+    %p Chapter id
+    = chapter.id
+    %br
+    %p Chapter content
+    :markdown
+      #{ chapter.content }
+-else
+  %p No chapters yet  
