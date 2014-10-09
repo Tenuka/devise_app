@@ -1,34 +1,17 @@
 class BooksController < ApplicationController
-	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-
-  def index
-    @books = Book.scoped
-  end
-
-  def new
-		@book = Book.new
-	end
+  load_and_authorize_resource
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def create
-    @book = Book.create(book_params)
-		@book.user = current_user
 		if @book.save
       flash[:success] = "Welcome to the Sample App!"
-      redirect_to edit_book_path(@book)
+      redirect_to @book
     else
       render 'new'
     end 
 	end
 
-  def edit
-    @book = Book.find(params[:id])
-    if @book.user != current_user
-      redirect_to book_path(@book)
-    end
-  end
-
   def update
-    @book = Book.find(params[:id])
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
@@ -40,9 +23,12 @@ class BooksController < ApplicationController
     end
   end
 
-	def show
-		@book = Book.find(params[:id])
-	end
+  def destroy
+    @book.destroy
+    respond_to do |format|
+      format.html { redirect_to @book }
+    end
+  end
 
   def show_top_rated
   end
@@ -50,15 +36,11 @@ class BooksController < ApplicationController
   def show_last_changed
   end
 
-  def destroy
-  end
-
-
 	private
 
-	def book_params
-		params.require(:book).permit(:name, :user_id, :genre_id, {tag_ids: []})
-	end
+  	def book_params
+  		params.require(:book).permit(:name, :user_id, :genre_id, {tag_ids: []}, chapters_attributes: [:id, :name, :content, :number, :_destroy])
+  	end
 
 
 

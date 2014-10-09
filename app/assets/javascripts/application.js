@@ -13,8 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require chosen-jquery
+//= require jquery_nested_form
 //= require bootstrap-sprockets
 //= require bootstrap-markdown-bundle
 //= require books
 
-
+$(".markdown-content").markdown({autofocus:false,savable:false})

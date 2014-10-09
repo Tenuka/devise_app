@@ -13,7 +13,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'enumerize'
 
 gem 'simple_form'
-gem "nested_form"
+gem 'nested_form'
 gem 'chosen-rails'
 
 gem 'bootstrap-sass', '~> 3.2.0'

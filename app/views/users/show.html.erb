@@ -6,10 +6,15 @@
   
   <li>
     <span>
-    <%= link_to book.name, book_path(book) %> 
-    </span> | <span>
-    <%= link_to "Edit book", edit_book_path(book) %>
+      <%= link_to book.name, book_path(book) %> 
     </span>
+    <% if can? :manage, book %>
+      | <span>
+        <%= link_to "Edit book", edit_book_path(book) %>
+        </span> | <span>
+        <%= link_to "Destroy book", book_path(book), method: :delete %>
+      </span>
+    <% end %>
   </li>
 <% end %>
 </ul>

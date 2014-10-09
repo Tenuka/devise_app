@@ -1,4 +1,4 @@
-<% if @book.user == current_user %>
-<%= @book.name %>
-<p><%= link_to "Create new chapter", new_book_chapter_path(@book) %></p>
-<% end %>
+<h1>Edit book</h1>
+  <%= render 'form'%>
+</div>
+
