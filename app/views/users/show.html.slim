@@ -14,4 +14,4 @@ ul
           = link_to "Edit book", edit_book_path(book)
         |  | 
         span
-          = link_to "Destroy book", book_path(book), method: :delete
+          = link_to "Destroy book", book_path(book), method: :delete, data: { confirm: 'Are you sure?' }
