@@ -1,0 +1,10 @@
+- provide(:title, "All Books" )
+h1
+  | All Books
+- if @books.any?
+  - @books.each do |book|
+    p
+      = link_to book.name, book_chapters_path(book)
+- else
+  p
+    | No books yet

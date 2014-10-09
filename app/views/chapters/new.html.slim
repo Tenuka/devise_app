@@ -1,0 +1,13 @@
+h1
+  | New Chapter
+br
+.row
+  .col-md-4.col-md-offset-2
+    = simple_form_for [ @book, @chapter] do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :name, label: 'Chapter name'
+        = f.input :number
+        div
+          = f.input :content, :input_html => {:rows => 8, :placeholder => "Enter some text.", "data-provide" => "markdown" }
+        = f.button :submit

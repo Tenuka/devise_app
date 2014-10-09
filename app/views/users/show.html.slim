@@ -1,0 +1,16 @@
+- provide(:title, @user.name)
+p
+  = @user.name
+= link_to "Create new book", new_book_path
+ul
+  - @user.books.each do |book|
+    li
+      span
+        = link_to book.name, book_path(book)
+      - if can? :manage, book
+        |  | 
+        span
+          = link_to "Edit book", edit_book_path(book)
+        |  | 
+        span
+          = link_to "Destroy book", book_path(book), method: :delete
