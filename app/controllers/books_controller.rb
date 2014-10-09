@@ -1,8 +1,13 @@
 class BooksController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource :only => [:index, :show]
 	before_action :authenticate_user!, except: [:index, :show]
 
-	def create
+	def index
+    @books = Book.all.order(:name) 
+  end
+
+  def create
 		if @book.save
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @book
@@ -26,7 +31,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to @book }
+      format.html { redirect_to user_path(@book.user_id), notice: 'Book was DELETED.' }
     end
   end
 

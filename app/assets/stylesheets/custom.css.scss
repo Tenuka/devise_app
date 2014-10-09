@@ -1,7 +1,7 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
-$grayLight: #eee;
+$grayLight: #555;
 $grayLighter: #dedede;
 $grayDarker: #555;
 $gray: #555;
@@ -15,10 +15,12 @@ $gray: #555;
 /* universal */
 
 html {
+  height: 100%;
   overflow-y: scroll;
 }
 
 body {
+  height: 100%;
   padding-top: 60px;
 }
 
@@ -52,7 +54,8 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: center;
+  margin-left: 20px;
+  /*text-align: center; */
 }
 
 h2 {

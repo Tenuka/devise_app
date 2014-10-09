@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource :only => [:index, :show]
 
   def create
     if @tag.save
@@ -28,4 +29,10 @@ class TagsController < ApplicationController
       format.html { redirect_to @tag }
     end
   end
+end
+
+private
+
+def tag_params
+  params.require(:book).permit(:name, {book_ids: []})
 end

@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user! #, only: [:index, :show]
+	load_and_authorize_resource
+  before_action :authenticate_user! #, only: [:index, :show]
 
   def index
-		@users = User.scoped
+    if current_user.admin?
+      flash[:success] = "Welcome, Administrator!"      
+		  @users = User.all
+    else
+      redirect_to root_url, :alert => "Access denied"
+    end
 	end
 
 	def show
@@ -26,8 +32,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
     @user.destroy
@@ -39,6 +43,8 @@ class UsersController < ApplicationController
 
   def block
   end
+
+  private
 
   def user_params
     params.require(:user).permit(:name, :email)
