@@ -5,9 +5,10 @@
       = f.input :name, label: "Name" 
       = f.association :genre, collection: Genre.all, include_blank: true, input_html: { class: 'chosen-select' }
       = f.association :tags, collection: Tag.all, include_blank: true, input_html: { class: 'chosen-select', multiple: true }
+      h3 Book chapters
       = f.simple_fields_for :chapters,  f.object.chapters.build do |chapter|
-        = chapter.input :name
-        = chapter.input :number
+        = chapter.input :name, label: "Chapter name"
+        = chapter.input :number, label: "Number of chapter"
         = chapter.input :content, :input_html => {class: 'markdown-content',:rows => 8, :placeholder => "Enter some text." }
         = chapter.link_to_remove "Remove this chapter"
       p

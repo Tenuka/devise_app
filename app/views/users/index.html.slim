@@ -24,7 +24,7 @@ br
 br
 h3 Listing Genres
 p 
-  = link_to "Add new Genre", "#", class: 'btn btn-primary btn-xs'
+  = link_to "Add new Genre", new_genre_path, class: 'btn btn-primary btn-sm'
 table.table.table-hover.table-striped 
   thead
     tr
@@ -39,3 +39,6 @@ table.table.table-hover.table-striped
         td = link_to 'Show', genre, class: 'btn btn-info btn-xs'
         td = link_to 'Edit', edit_genre_path(genre), class: 'btn btn-warning btn-xs'
         td = link_to 'Destroy', genre, method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' }
+br
+br
+

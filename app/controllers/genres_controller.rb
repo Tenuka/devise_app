@@ -5,7 +5,7 @@ class GenresController < ApplicationController
 
   def create
     if @genre.save
-      flash[:success] = "Genre #{genre.name} was successfully created."
+      flash[:success] = "Genre was successfully created."
       redirect_to users_path
     else
       render 'new'

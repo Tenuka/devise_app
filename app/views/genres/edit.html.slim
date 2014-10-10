@@ -1,2 +1,12 @@
-h1 Genres#edit
-p Find me in app/views/genres/edit.html.slim
+.row
+  .col-md-offset-2
+    h1
+      | Edit #{@genre.name} genre
+= render 'form'
+.row
+  .col-md-4.col-md-offset-2
+    br    
+    br
+    = link_to "Show", genre_path, class: "btn btn-default btn-xs"
+    |   |  
+    = link_to 'Back', users_path, class: 'btn btn-default btn-xs'
