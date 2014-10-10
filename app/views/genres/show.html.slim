@@ -5,6 +5,8 @@
 h1
   = @genre.name
 - if @genre.books.any? 
+  p
+    | Books with this genre
   ul
     - @genre.books.each do |book|
       li

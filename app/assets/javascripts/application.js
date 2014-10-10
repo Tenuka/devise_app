@@ -17,5 +17,6 @@
 //= require bootstrap-sprockets
 //= require bootstrap-markdown-bundle
 //= require books
+//= require chapters
 
 $(".markdown-content").markdown({autofocus:false,savable:false})

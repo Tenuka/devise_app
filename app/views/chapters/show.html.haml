@@ -5,6 +5,7 @@
 %p Chapter name
 = @chapter.name
 %br
-%p Chapter content
-:markdown
-  #{ @chapter.content }
+%p  Chapter content
+%div.reader
+  :markdown
+    #{ @chapter.content }

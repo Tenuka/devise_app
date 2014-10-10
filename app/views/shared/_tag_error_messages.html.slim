@@ -1,0 +1,11 @@
+- if @tag.errors.any?
+  #error_explanation
+    .alert.alert-error
+      |  The form contains 
+      = pluralize(@tag.errors.count, "error")
+      | . 
+    ul
+      - @tag.errors.full_messages.each do |msg|
+        li
+          | * 
+          = msg

@@ -1,2 +1,15 @@
-h1 Tags#show
-p Find me in app/views/tags/show.html.slim
+- provide(:title, @tag.name)
+= link_to "All Tags ", tags_path
+|
+   > 
+h1
+  = @tag.name
+- if @tag.books.any?
+  p
+    | Books with this tag
+  ul
+    - @tag.books.each do |book|
+      li
+        = link_to book.name, book_path(book) 
+- else
+  = "No Books with this tag"

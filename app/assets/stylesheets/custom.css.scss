@@ -6,6 +6,10 @@ $grayLighter: #dedede;
 $grayDarker: #555;
 $gray: #555;
 
+.reader {
+  background-color: #555;
+}
+
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
