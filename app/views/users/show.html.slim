@@ -2,16 +2,22 @@
 h3
   = @user.name
 - if @user == current_user
-  = link_to "Create new book", new_book_path
-ul
-  - @user.books.each do |book|
-    li
-      span
-        = link_to book.name, book_path(book)
-      - if can? :manage, book
-        |  | 
+  = link_to "Edit profile", edit_user_path
+  p
+    = link_to "Create new book", new_book_path
+- if @user.books.any?
+  ul
+    - @user.books.each do |book|
+      li
         span
-          = link_to "Edit book", edit_book_path(book)
-        |  | 
-        span
-          = link_to "Destroy book", book_path(book), method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to book.name, book_path(book)
+        - if can? :manage, book
+          |  | 
+          span
+            = link_to "Edit book", edit_book_path(book)
+          |  | 
+          span
+            = link_to "Destroy book", book_path(book), method: :delete, data: { confirm: 'Are you sure?' }
+- else
+  p
+    | No books yet.

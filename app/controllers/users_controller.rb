@@ -4,8 +4,9 @@ class UsersController < ApplicationController
 
   def index
     if current_user.admin?
-      flash[:success] = "Welcome, Administrator!"      
-		  @users = User.all
+      @users = User.all
+      @genres = Genre.all
+      @tags = Tag.all
     else
       redirect_to root_url, :alert => "Access denied"
     end
