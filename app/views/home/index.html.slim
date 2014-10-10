@@ -1,10 +1,26 @@
 - provide(:title, "All Books" )
 h1
-  | All Books
+  | Top 10 rated Books
 - if @books.any?
   - @books.each do |book|
     p
       = link_to book.name, book_chapters_path(book)
 - else
   p
+    | No books rated yet
+br
+br
+h1
+  | Last changed Books
+- if @last_changed_books.any?
+  - @last_changed_books.each do |changed_book|
+    p
+      = link_to changed_book.name, book_chapters_path(changed_book)
+- else
+  p
     | No books yet
+h1
+  | Tags Cloud
+p
+  | There cuold be tags
+

@@ -1,19 +1,28 @@
 .row
-  .col-md-4.col-md-offset-2
+  .col-md-12.col-md-offset-1
     = simple_nested_form_for @book do |f|
-      = render 'shared/book_error_messages' 
-      = f.input :name, label: "Name" 
-      = f.association :genre, collection: Genre.all, include_blank: true, input_html: { class: 'chosen-select' }
-      = f.association :tags, collection: Tag.all, include_blank: true, input_html: { class: 'chosen-select', multiple: true }
-      h3 Book chapters
-      = f.simple_fields_for :chapters,  f.object.chapters.build do |chapter|
-        = chapter.input :name, label: "Chapter name"
-        = chapter.input :number, label: "Number of chapter"
-        = chapter.input :content, :input_html => {class: 'markdown-content',:rows => 8, :placeholder => "Enter some text." }
-        = chapter.link_to_remove "Remove this chapter"
-      p
-      hr
+      = render 'shared/book_error_messages'
+      .col-md-4 
+        = f.input :name, label: "Name" 
+        = f.association :genre, collection: Genre.all, include_blank: true, input_html: { class: 'chosen-select' }
+        = f.association :tags, collection: Tag.all, include_blank: true, hint: "If you haven't found some tag you can create new one below", input_html: { class: 'chosen-select', multiple: true }
+        = f.simple_fields_for :tags,  f.object.tags.build do |tag|
+          = tag.input :name, label: "New tag"
+          = tag.link_to_remove "Remove this tag"
+          hr
+        = f.link_to_add "Add one more new tag", :tags
+      .col-md-10
+        h3 Book chapters
+        = f.simple_fields_for :chapters,  f.object.chapters.build do |chapter|
+          = chapter.input :name, label: "Chapter name"
+          = chapter.input :number, label: "Number of chapter"
+          = chapter.input :content, :input_html => {class: 'markdown-content',:rows => 8, :placeholder => "Enter some text." }
+          = chapter.link_to_remove "Remove this chapter"
+        p
+        hr
         = f.link_to_add "Add chapter", :chapters
-      = f.button :submit  
+        p
+      .col-md-2.col-md-offset-1
+        = f.button :submit  
     
 

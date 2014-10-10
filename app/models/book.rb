@@ -8,6 +8,8 @@ class Book < ActiveRecord::Base
   has_many   :rates, dependent: :destroy
   has_many   :book_tags
   has_many   :tags, through: :book_tags
+  accepts_nested_attributes_for :book_tags
+  accepts_nested_attributes_for :tags
 
   validates :name, presence: true, length: { maximum: 140 }
   # validates :genre, presence: true

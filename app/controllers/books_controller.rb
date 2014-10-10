@@ -8,6 +8,7 @@ class BooksController < ApplicationController
   end
 
   def create
+    binding.pry
 		if @book.save
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @book
@@ -44,7 +45,7 @@ class BooksController < ApplicationController
 	private
 
   	def book_params
-  		params.require(:book).permit(:name, :user_id, :genre_id, {tag_ids: []}, chapters_attributes: [:id, :name, :content, :number, :_destroy])
+  		params.require(:book).permit(:name, :user_id, :genre_id, {tag_ids: []}, tags_attributes: [:id, :name, :_destroy], chapters_attributes: [:id, :name, :content, :number, :_destroy])
   	end
 
 
