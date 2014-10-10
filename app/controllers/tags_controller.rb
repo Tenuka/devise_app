@@ -26,7 +26,7 @@ class TagsController < ApplicationController
   def destroy
     @tag.destroy
     respond_to do |format|
-      format.html { redirect_to @tag }
+      format.html { redirect_to users_path, notice: 'Tag was DELETED.' }
     end
   end
 end
@@ -34,5 +34,5 @@ end
 private
 
 def tag_params
-  params.require(:book).permit(:name, {book_ids: []})
+  params.require(:tag).permit(:name, {book_ids: []})
 end

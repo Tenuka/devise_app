@@ -1,63 +1,32 @@
 - provide(:title, "List of users")
+h1#list Admin tools
+br
+ul
+  li = link_to "Listing Users", :anchor => "users"
+  li = link_to "Listing Genres", :anchor => "genres"
+  li#users = link_to "Listing Tags", :anchor => "tags"
+br
+br
 h3 Listing Users
-table.table.table-hover.table-striped 
-  thead
-    tr
-      th Name
-      th Email
-      th Role
-      th
-      th
-      th
-      th
-  tbody
-    - @users.each do |user|
-      tr
-        td = user.name
-        td = user.email
-        td = user.role
-        td = link_to 'Show', user, class: 'btn btn-info btn-xs'
-        td = link_to 'Edit', edit_user_path(user), class: 'btn btn-warning btn-xs'
-        td = link_to 'Block', "#", class: 'btn btn-primary btn-xs'
-        td = link_to 'Destroy', user, method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' }
+= render "table_users"
+br#genres
+= link_to "Back to Top", :anchor => "list"
+br
 br
 br
 h3 Listing Genres
 p 
   = link_to "Add new Genre", new_genre_path, class: 'btn btn-primary btn-sm'
-table.table.table-hover.table-striped 
-  thead
-    tr
-      th Genre
-      th
-      th
-      th
-  tbody
-    - @genres.each do |genre|
-      tr
-        td = genre.name
-        td = link_to 'Show', genre, class: 'btn btn-info btn-xs'
-        td = link_to 'Edit', edit_genre_path(genre), class: 'btn btn-warning btn-xs'
-        td = link_to 'Destroy', genre, method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' }
+= render "table_genres"
+br#tags
+= link_to "Back to Top", :anchor => "list"
+br
 br
 br
 h3 Listing Tags
 p 
   = link_to "Add new Tag", new_tag_path, class: 'btn btn-primary btn-sm'
-table.table.table-hover.table-striped 
-  thead
-    tr
-      th Tag
-      th
-      th
-      th
-  tbody
-    - @tags.each do |tag|
-      tr
-        td = tag.name
-        td = link_to 'Show', tag, class: 'btn btn-info btn-xs'
-        td = link_to 'Edit', edit_tag_path(tag), class: 'btn btn-warning btn-xs'
-        td = link_to 'Destroy', tag, method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' }
+= render "table_tags"
 br
+= link_to "Back to Top", :anchor => "list"
 br
-
