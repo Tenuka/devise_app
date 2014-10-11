@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20141011082536) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "role"
-    t.string   "banned"
+    t.string   "status"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
