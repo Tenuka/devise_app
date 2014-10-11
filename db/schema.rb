@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008140338) do
+ActiveRecord::Schema.define(version: 20141011082536) do
 
   create_table "annotations", force: true do |t|
     t.text     "content"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20141008140338) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "role"
+    t.string   "banned"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

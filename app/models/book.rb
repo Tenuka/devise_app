@@ -9,7 +9,7 @@ class Book < ActiveRecord::Base
   has_many   :book_tags
   has_many   :tags, through: :book_tags
   accepts_nested_attributes_for :book_tags
-  accepts_nested_attributes_for :tags
+  accepts_nested_attributes_for :tags, reject_if: lambda { |a| a[:name].blank? }
 
   validates :name, presence: true, length: { maximum: 140 }
   # validates :genre, presence: true

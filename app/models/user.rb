@@ -10,5 +10,6 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
 
   enumerize :role, in: [:admin, :user], predicates: true, default: :user
+  enumerize :banned, in: [:legal, :ban], predicates: true, default: :legal
 
 end
