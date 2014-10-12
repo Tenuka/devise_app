@@ -57,7 +57,7 @@ end
 group :development, :test do
   gem "pry-rails"
   gem 'rspec-rails', '2.13.1'
-  gem 'mysql2', '~> 0.3.16'
+  #gem 'mysql2', '~> 0.3.16'
 end
 
 group :test do
