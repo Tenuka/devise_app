@@ -4,7 +4,7 @@ class BooksController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-    @books = Book.all.order(:name) 
+    @books = Book.order(:name).page(params[:page]).per(10) 
   end
 
   def create

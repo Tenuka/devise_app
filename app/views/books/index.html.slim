@@ -2,9 +2,24 @@
 h1
   | All Books
 - if @books.any?
+  = paginate @books, :window => 2
   - @books.each do |book|
     p
-      = link_to book.name, book_chapters_path(book)
+      = link_to book.name, book_chapters_path(book), class: 'book-name'
+      br
+      = "Author: "
+      - if user_signed_in?
+        = link_to book.user.name, user_path(book.user), class: 'author-name'
+        = ", "
+      - else  
+        = book.user.name
+        = ", "
+      = link_to book.genre.name, genre_path(book.genre) if !book.genre.nil?
+      - if book.tags.any?
+        - book.tags.each do |tag|
+          = link_to " \#" << tag.name, tag_path(tag)
+  = link_to_previous_page @books, '< Previous page |'
+  = link_to_next_page @books, ' Next page >'
 - else
   p
     | No books yet
