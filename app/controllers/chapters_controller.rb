@@ -3,6 +3,7 @@ class ChaptersController < ApplicationController
 
   def index
     @book = Book.find(params[:book_id])
+    @chapters = @book.chapters.order(:number).page(params[:chapter]).per(1) 
   end
 
   def new

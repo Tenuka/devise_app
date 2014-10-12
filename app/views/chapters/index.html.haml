@@ -1,20 +1,43 @@
 - provide(:title, @book.name )
-
-%h1 
-  = link_to @book.name, books_path
-
-- if @book.chapters.any?
-  - @book.chapters.each do |chapter| 
-    %p Chapter name
-    = chapter.name
-    %br
-    %p Chapter id
-    = chapter.id
-    %br
-    %p Chapter content
-    :markdown
-      #{chapter.content}
-    %hr
-- else
-  %p No chapters yet  
+.col-md-12
+  %br
+  = link_to @book.name, book_chapters_path(@book), class: 'book-name-chapters'
+  %br
+  = "Author: "
+  - if user_signed_in?
+    = link_to @book.user.name + ", ", user_path(@book.user), class: 'author-name'
+  - else  
+    = @book.user.name + ", "
+  = link_to @book.genre.name, genre_path(@book.genre) if !@book.genre.nil?
+  - if @book.tags.any?
+    - @book.tags.each do |tag|
+      = link_to " \#" << tag.name, tag_path(tag)
+  %p
+  - if @book.chapters.any?
+    = paginate @chapters, :window => 2, :param_name => :chapter
+    - @chapters.each do |chapter|
+      .col-md-12
+      .col-md-6
+        %br
+        %br
+        %t.chapter-name
+          = chapter.number.to_s + ". " + chapter.name.to_s
+        %br
+        = " test mode - fix it. id="
+        = chapter.id
+        %br
+      .col-md-8.reader-content
+        %br
+        .col-md-12.reader
+          %p
+            = " test mode - fix it. Content="
+            :markdown
+              #{chapter.content}              
+        .col-md-12
+          %br
+    .col-md-12
+      %br      
+      = paginate @chapters, :window => 2, :param_name => :chapter
+  -else
+    %p No chapters yet 
 

@@ -10,7 +10,7 @@ h3
     - @user.books.each do |book|
       li
         span
-          = link_to book.name, book_path(book), class: 'book-name'
+          = link_to book.name, book_chapters_path(book), class: 'book-name'
         - if can? :manage, book
           |  | 
           span

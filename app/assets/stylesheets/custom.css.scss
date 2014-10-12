@@ -7,7 +7,10 @@ $grayDarker: #555;
 $gray: #555;
 
 .reader {
-  background-color: #555;
+  background-color: #FFE4C4;
+}
+.reader-content {
+  background-color: #DEB887;
 }
 
 .book-name {
@@ -17,8 +20,16 @@ $gray: #555;
   letter-spacing: 0px;
   font-weight: bold;
 }
-.author-name {
+.book-name-chapters {
   color: #000080;
+  font-size: 25pt;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  font-weight: bold;
+}
+.chapter-name {
+  color: #000000;
+  font-size: 17pt;
   letter-spacing: 0px;
   font-weight: bold;
 }
