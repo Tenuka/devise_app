@@ -18,8 +18,6 @@ h1
       - if book.tags.any?
         - book.tags.each do |tag|
           = link_to " \#" << tag.name, tag_path(tag)
-  = link_to_previous_page @books, '< Previous page |'
-  = link_to_next_page @books, ' Next page >'
   br
   = paginate @books, :window => 2
 - else
