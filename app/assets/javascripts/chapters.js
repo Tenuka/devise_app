@@ -1,3 +1,3 @@
-$(document).ready(function(){
-$(".reader").widht(10);
+$( "a" ).mousedown(function() {
+  alert( "Handler for .mousedown() called." );
 })

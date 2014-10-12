@@ -12,5 +12,5 @@ class Book < ActiveRecord::Base
   accepts_nested_attributes_for :tags, reject_if: lambda { |a| a[:name].blank? }
 
   validates :name, presence: true, length: { maximum: 140 }
-  # validates :genre, presence: true
+  validates :genre, presence: true
 end

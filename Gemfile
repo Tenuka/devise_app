@@ -12,6 +12,7 @@ gem 'cancancan', '~> 1.9'
 
 # gem 'activeadmin', github: 'activeadmin'
 gem 'enumerize'
+gem 'kaminari'
 
 gem 'simple_form'
 gem 'nested_form'
@@ -19,7 +20,7 @@ gem 'chosen-rails'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '>= 3.2'
-gem 'rails-bootstrap-markdown'
+gem 'rails-bootstrap-markdown', :github => 'Tenuka/rails-bootstrap-markdown'
 gem 'haml-rails'
 gem 'redcarpet'
 gem 'albino'

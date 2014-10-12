@@ -1,0 +1,16 @@
+#myCanvasContainer
+  canvas#myCanvas[width="400" height="400"]
+    p Anything in here will be replaced on browsers that support the canvas element
+    #tags
+      ul
+        - if @tags.any?
+          - @tags.each do |tag|
+            - if tag.books.count > @max_count / 3
+              - @size = "30pt"
+            - elsif tag.books.count > @max_count * 2 / 3
+              - @size = "20pt"
+            - else
+              - @size = "13pt"
+            li = link_to tag.name, tag_path(tag), :style => "font-size: #{@size}"
+        - else
+          li No tags yet

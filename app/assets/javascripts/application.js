@@ -10,16 +10,14 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
 //= require chosen-jquery
-//= require bootstrap-markdown-ex
 //= require jquery_nested_form
 //= require bootstrap-sprockets
-
 //= require bootstrap-markdown-bundle
-
 //= require books
 //= require chapters
-
-$(".markdown-content").markdown({autofocus:false,savable:false})
+//= require tagcanvas.min
+//= require home

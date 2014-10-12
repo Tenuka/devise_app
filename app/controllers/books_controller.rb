@@ -9,6 +9,7 @@ class BooksController < ApplicationController
 
   def create
     binding.pry
+    @book.user = current_user
 		if @book.save
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @book

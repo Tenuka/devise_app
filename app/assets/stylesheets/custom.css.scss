@@ -10,6 +10,19 @@ $gray: #555;
   background-color: #555;
 }
 
+.book-name {
+  color: #000080;
+  font-size: 17pt;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+.author-name {
+  color: #000080;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;

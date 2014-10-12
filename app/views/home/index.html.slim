@@ -1,26 +1,56 @@
 - provide(:title, "All Books" )
-h1
-  | Top 10 rated Books
-- if @books.any?
-  - @books.each do |book|
+.col-md-12
+  .col-md-6
+    h1
+      | Top 10 rated Books
+    - if @books.any?
+      - @books.each do |book|
+        p
+          = link_to book.name, book_chapters_path(book), class: 'book-name'
+          br
+          = "Author: "
+          - if user_signed_in?
+            = link_to book.user.name, user_path(book.user), class: 'author-name'
+            = ", "
+          - else  
+            = book.user.name
+            = ", "
+          = link_to book.genre.name, genre_path(book.genre) if !book.genre.nil?
+          - if book.tags.any?
+            - book.tags.each do |tag|
+              = link_to " \#" << tag.name, tag_path(tag)
+    - else
+      p
+        | No books rated yet
+    br
+    br
+  .col-md-6
+    h1
+      | Last changed Books
+    - if @last_changed_books.any?
+      - @last_changed_books.each do |changed_book|
+        p
+          = link_to changed_book.name, book_chapters_path(changed_book), class: 'book-name'
+          br
+          = "Author: "
+          - if user_signed_in?
+            = link_to changed_book.user.name, user_path(changed_book.user), class: 'author-name'
+            = ", "
+          - else  
+            = book.user.name
+            = ", "
+          = link_to changed_book.genre.name, genre_path(changed_book.genre) if !changed_book.genre.nil?
+          - if changed_book.tags.any?
+            - changed_book.tags.each do |tag|
+              = link_to " \#" << tag.name, tag_path(tag)
+    - else
+      p
+        | No books yet
+    br
+    br 
+  .col-md-10     
+  .col-md-6
+    h1
+      | Tags Cloud
     p
-      = link_to book.name, book_chapters_path(book)
-- else
-  p
-    | No books rated yet
-br
-br
-h1
-  | Last changed Books
-- if @last_changed_books.any?
-  - @last_changed_books.each do |changed_book|
-    p
-      = link_to changed_book.name, book_chapters_path(changed_book)
-- else
-  p
-    | No books yet
-h1
-  | Tags Cloud
-p
-  | There cuold be tags
-
+    = render 'tag_cloud'
