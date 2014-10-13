@@ -5,9 +5,9 @@
       ul
         - if @tags.any?
           - @tags.each do |tag|
-            - if tag.books.count > @max_count / 3
+            - if tag.books.count > @max_count * 2 / 3
               - @size = "30pt"
-            - elsif tag.books.count > @max_count * 2 / 3
+            - elsif tag.books.count > @max_count / 3
               - @size = "20pt"
             - else
               - @size = "13pt"
