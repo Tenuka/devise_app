@@ -1,5 +1,7 @@
 class ChaptersController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  load_and_authorize_resource
+  skip_authorize_resource :only => [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @book = Book.find(params[:book_id])
@@ -16,11 +18,24 @@ class ChaptersController < ApplicationController
     @book = Book.find(params[:book_id])
     @chapter.book_id = @book.id
     if @chapter.save
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "New Chapter was successfully created!"
       redirect_to book_chapter_path(@book, @chapter)
     else
       render 'new'
     end 
+  end
+
+  def update
+    #binding.pry
+    respond_to do |format|
+      if @chapter.update(chapter_params)
+        format.html { redirect_to book_chapters_path(@chapter.book_id), notice: 'Chapter was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @chapter.errors, status: :unprocessable_entity }
+      end
+    end
   end
   
   def show

@@ -18,7 +18,14 @@ class BooksController < ApplicationController
     end 
 	end
 
+  def edit
+    @book = Book.find(params[:id])
+    @chapters = @book.chapters
+  end
+
   def update
+    #binding.pry
+
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
