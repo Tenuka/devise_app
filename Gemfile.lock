@@ -89,6 +89,11 @@ GEM
       activesupport (>= 3.2)
     erubis (2.7.0)
     execjs (2.2.1)
+    factory_girl (4.2.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.2.1)
+      factory_girl (~> 4.2.0)
+      railties (>= 3.0.0)
     ffi (1.9.5)
     foreman (0.75.0)
       dotenv (~> 0.11.1)
@@ -253,6 +258,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   enumerize
+  factory_girl_rails (= 4.2.1)
   foreman
   haml-rails
   jbuilder (~> 1.2)
