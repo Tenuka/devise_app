@@ -21,6 +21,7 @@ class BooksController < ApplicationController
   def edit
     @book = Book.find(params[:id])
     @chapters = @book.chapters
+    @tags = @book.tags
   end
 
   def update

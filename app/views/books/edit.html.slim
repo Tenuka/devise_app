@@ -10,7 +10,7 @@
         = f.input :name, label: "Name" 
         = f.association :genre, collection: Genre.all, include_blank: true, input_html: { class: 'chosen-select' }
         = f.association :tags, collection: Tag.all, include_blank: true, hint: "If you haven't found some tag you can create new one below", input_html: { class: 'chosen-select', multiple: true }
-        = f.simple_fields_for :tags,  f.object.tags.build do |tag|
+        = f.simple_fields_for :tags,  f.object.tags do |tag|
           = tag.input :name, label: "New tag"
           = tag.link_to_remove "Remove this tag"
           hr

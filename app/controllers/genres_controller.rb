@@ -3,6 +3,10 @@ class GenresController < ApplicationController
   skip_authorize_resource :only => [:index, :show]
   before_action :authenticate_user!, except: [:index, :show]
 
+  def index
+    @genres = Genre.all.order(:name) 
+  end
+
   def create
     if @genre.save
       flash[:success] = "Genre was successfully created."

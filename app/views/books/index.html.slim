@@ -2,7 +2,7 @@
 h1
   | All Books
 - if @books.any?
-  = paginate @books, :window => 2
+  = paginate @books, :window => 2, :left => 2, :right => 2
   - @books.order(:name).each do |book|
     p
       = link_to book.name, book_chapters_path(book), class: 'book-name'
@@ -19,7 +19,7 @@ h1
         - book.tags.each do |tag|
           = link_to " \#" << tag.name, tag_path(tag)
   br
-  = paginate @books, :window => 2
+  = paginate @books, :window => 2, :left => 2, :right => 2
 - else
   p
     | No books yet

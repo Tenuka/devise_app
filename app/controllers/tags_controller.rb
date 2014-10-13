@@ -2,6 +2,10 @@ class TagsController < ApplicationController
   load_and_authorize_resource
   skip_authorize_resource :only => [:index, :show]
 
+  def index
+    @tags = Tag.all.order(:name) 
+  end
+
   def create
     if @tag.save
       flash[:success] = "New Tag successfully added."

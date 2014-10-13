@@ -14,7 +14,7 @@
       = link_to " \#" << tag.name, tag_path(tag)
   %p
   - if @book.chapters.any?
-    = paginate @chapters, :window => 2, :param_name => :chapter
+    = paginate @chapters, :window => 2, :left => 2, :right => 2, :param_name => :chapter
     - @chapters.each do |chapter|
       .col-md-12
       .col-md-6
@@ -34,7 +34,7 @@
           %br
     .col-md-12
       %br      
-      = paginate @chapters, :window => 2, :param_name => :chapter
+      = paginate @chapters, :window => 2, :left => 2, :right => 2, :param_name => :chapter
   -else
     %p No chapters yet 
 
