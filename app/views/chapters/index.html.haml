@@ -23,14 +23,11 @@
         %t.chapter-name
           = chapter.number.to_s + ". " + chapter.name.to_s
         %br
-        = " test mode - fix it. id="
-        = chapter.id
         %br
       .col-md-8.reader-content
         %br
         .col-md-12.reader
           %p
-            = " test mode - fix it. Content="
             :markdown
               #{chapter.content}              
         .col-md-12

@@ -13,9 +13,12 @@ DeviseApp::Application.routes.draw do
   #  resources :books, only: [ :index, :new, :create, :edit, :update ] 
       
   # end
+  concern :paginatable do
+    get '(chapter/:chapter)', :action => :index, :on => :collection, :as => ''
+  end
 
   resources :books do  # , only: [:show]
-    resources :chapters #, only: [ :show ]
+    resources :chapters, :concerns => :paginatable #, only: [ :show ]
   end
   resources :genres
   resources :tags
