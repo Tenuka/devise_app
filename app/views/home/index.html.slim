@@ -36,7 +36,7 @@
             = link_to changed_book.user.name, user_path(changed_book.user), class: 'author-name'
             = ", "
           - else  
-            = book.user.name
+            = changed_book.user.name
             = ", "
           = link_to changed_book.genre.name, genre_path(changed_book.genre) if !changed_book.genre.nil?
           - if changed_book.tags.any?
