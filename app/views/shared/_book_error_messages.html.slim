@@ -1,7 +1,7 @@
 - if @book.errors.any?
   #error_explanation
     .alert.alert-error
-      |  The form contains 
+      |  The form contains
       = pluralize(@book.errors.count, "error")
       | . 
     ul

@@ -4,7 +4,7 @@ h1 All Genres
   p
     = link_to genre.name, genre_path(genre)
     - if genre.books.any?
-      = " | Books with this genre: " 
+      = " | Books with this genre: "
       = genre.books.count
     - else
       = " | No books with this genre"

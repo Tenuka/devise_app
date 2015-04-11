@@ -18,7 +18,7 @@
     .actions
       = f.button :submit
   - if current_user.admin?
-    br    
+    br
     = link_to 'Show', @user, class: 'btn btn-default btn-xs'
     |   |  
     = link_to 'Back to Admin Tools', users_path, class: 'btn btn-default btn-xs'

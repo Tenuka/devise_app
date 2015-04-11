@@ -12,7 +12,7 @@
           - if user_signed_in?
             = link_to book.user.name, user_path(book.user), class: 'author-name'
             = ", "
-          - else  
+          - else
             = book.user.name
             = ", "
           = link_to book.genre.name, genre_path(book.genre) if !book.genre.nil?
@@ -35,7 +35,7 @@
           - if user_signed_in?
             = link_to changed_book.user.name, user_path(changed_book.user), class: 'author-name'
             = ", "
-          - else  
+          - else
             = changed_book.user.name
             = ", "
           = link_to changed_book.genre.name, genre_path(changed_book.genre) if !changed_book.genre.nil?

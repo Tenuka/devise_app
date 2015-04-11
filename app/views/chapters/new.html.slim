@@ -9,5 +9,5 @@ br
         = f.input :name, label: 'Chapter name'
         = f.input :number
         div
-          = f.input :content, :input_html => {:rows => 8, :placeholder => "Enter some text.", "data-provide" => "markdown" }
+          = f.input :content, :input_html { rows: 8, placeholder: "Enter some text.", data: { provide: "markdown" } }
         = f.button :submit

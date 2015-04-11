@@ -9,6 +9,7 @@ h1
     | Books with this genre
   ul
     - @genre.books.each do |book|
-      = link_to book.name, book_chapters_path(book), class: 'book-name' 
+      = link_to book.name, book_chapters_path(book), class: 'book-name'
+      br
 - else
   = "No Books with this genre"

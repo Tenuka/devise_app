@@ -6,9 +6,9 @@
   = "Author: "
   - if user_signed_in?
     = link_to @book.user.name + ", ", user_path(@book.user), class: 'author-name'
-  - else  
+  - else
     = @book.user.name + ", "
-  = link_to @book.genre.name, genre_path(@book.genre) if !@book.genre.nil?
+  = link_to @book.genre.name, genre_path(@book.genre) unless @book.genre.nil?
   - if @book.tags.any?
     - @book.tags.each do |tag|
       = link_to " \#" << tag.name, tag_path(tag)
@@ -19,4 +19,4 @@
         %t.chapter-name
           = chapter.number.to_s + ". " + chapter.name.to_s
   -else
-    %p No chapters yet  
+    %p No chapters yet

@@ -17,13 +17,11 @@
           = chapter.error_notification
           = chapter.input :name, label: "Chapter name"
           = chapter.input :number, label: "Number of chapter"
-          = chapter.input :content, :input_html => {class: 'markdown-content',:rows => 8, :placeholder => "Enter some text.", "data-provide" => "markdown" }
-          = chapter.link_to_remove "Remove this chapter"
+          = chapter.input :content, input_html: { class: 'markdown-content', rows: 8, placeholder: 'Enter some text.', data: { provide: "markdown" } }
+          = chapter.link_to_remove 'Remove this chapter'
         p
         hr
         = f.link_to_add "Add chapter", :chapters
         p
       .col-md-2.col-md-offset-1
-        = f.button :submit  
-    
-
+        = f.button :submit
