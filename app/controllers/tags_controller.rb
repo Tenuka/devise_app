@@ -1,9 +1,9 @@
 class TagsController < ApplicationController
   load_and_authorize_resource
-  skip_authorize_resource :only => [:index, :show]
+  skip_authorize_resource only: [:index, :show]
 
   def index
-    @tags = Tag.all.order(:name) 
+    @tags = Tag.all.order(:name)
   end
 
   def create
@@ -33,10 +33,12 @@ class TagsController < ApplicationController
       format.html { redirect_to users_path, notice: 'Tag was DELETED.' }
     end
   end
+
+  private
+
+  def tag_params
+    params.require(:tag).permit(:name, book_ids: [])
+  end
 end
 
-private
 
-def tag_params
-  params.require(:tag).permit(:name, {book_ids: []})
-end

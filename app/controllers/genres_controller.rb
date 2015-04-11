@@ -1,6 +1,6 @@
 class GenresController < ApplicationController
   load_and_authorize_resource
-  skip_authorize_resource :only => [:index, :show]
+  skip_authorize_resource only: [:index, :show]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -15,7 +15,6 @@ class GenresController < ApplicationController
       render 'new'
     end
   end
-
 
   def update
     respond_to do |format|
@@ -38,7 +37,7 @@ class GenresController < ApplicationController
 
   private
 
-    def genre_params
-      params.require(:genre).permit(:name)
-    end
+  def genre_params
+    params.require(:genre).permit(:name)
+  end
 end

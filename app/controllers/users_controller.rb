@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-	load_and_authorize_resource
-  before_action :authenticate_user! #, only: [:index, :show]
+  load_and_authorize_resource
+  before_action :authenticate_user!
 
   def index
     if current_user.admin?
@@ -8,13 +8,13 @@ class UsersController < ApplicationController
       @genres = Genre.all
       @tags = Tag.all
     else
-      redirect_to root_url, :alert => "Access denied"
+      redirect_to root_url, alert: "Access denied"
     end
-	end
+  end
 
-	def show
-		@user = User.find(params[:id])
-	end
+  def show
+    @user = User.find(params[:id])
+  end
 
   def edit
     @user = User.find(params[:id])
@@ -42,14 +42,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def block
+  def block # TODO: find out what it's doing here
   end
 
   private
 
   def user_params
     params.require(:user).permit(:name, :email)
-    
   end
-
 end

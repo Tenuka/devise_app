@@ -1,6 +1,6 @@
 class ChaptersController < ApplicationController
   load_and_authorize_resource
-  skip_authorize_resource :only => [:index, :show]
+  skip_authorize_resource only: [:index, :show]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -22,11 +22,10 @@ class ChaptersController < ApplicationController
       redirect_to book_chapter_path(@book, @chapter)
     else
       render 'new'
-    end 
+    end
   end
 
   def update
-    #binding.pry
     respond_to do |format|
       if @chapter.update(chapter_params)
         format.html { redirect_to book_chapters_path(@chapter.book_id), notice: 'Chapter was successfully updated.' }
@@ -37,15 +36,15 @@ class ChaptersController < ApplicationController
       end
     end
   end
-  
+
   def show
     @chapter = Chapter.find(params[:id])
     @book = Book.find(@chapter.book_id)
   end
 
   private
+
   def chapter_params
     params.require(:chapter).permit(:name, :content, :number, :book_id)
   end
-
 end
